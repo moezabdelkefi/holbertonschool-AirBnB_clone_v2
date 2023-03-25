@@ -11,9 +11,7 @@ class User(Base, BaseModel):
     password = Column(String(128), nullable=False)
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
-
-    def __init__(self, email, password, first_name=None, last_name=None):
-        self.email = email
-        self.password = password
-        self.first_name = first_name
-        self.last_name = last_name
+    places = relationship(
+        'Place', cascade="all, delete-orphan", backref='user')
+    reviews = relationship(
+        'Review', cascade="all, delete-orphan", backref='user')
