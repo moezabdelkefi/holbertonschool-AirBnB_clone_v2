@@ -15,7 +15,7 @@ The default value of text is “is cool”
 /number_template/<n>: display a HTML page only if n is an integer:
 H1 tag: “Number: n” inside the tag BODY
 """
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -47,10 +47,9 @@ def hello2(text='is cool'):
 def is_number(n):
     return '{} is a number'.format(n)
 
-@app.route('/number_template/<n>', strict_slashes=False)
+@app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
-    return number_template('5-number.html', n=n)
-
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
