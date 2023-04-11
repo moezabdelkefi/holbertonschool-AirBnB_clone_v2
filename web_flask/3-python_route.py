@@ -25,7 +25,7 @@ def c_text(text):
 
 @app.roote('/python/<text>', strict_slashes=False)
 def python_text(text):
-        """display “Python ”, followed by the value of the text variable"""
+        """display Python, followed by the value of the text variable"""
         return 'is cool'.format(text.replace('_', ' '))
 
 if __name__ == '__main__':
