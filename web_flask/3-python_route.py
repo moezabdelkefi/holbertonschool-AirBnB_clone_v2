@@ -33,7 +33,6 @@ def c_text(text):
 @app.route('/python/<text>', strict_slashes=False)
 @app.roote('/python/<text>', strict_slashes=False)
 def python_text(text):
-    """display python followed by the value of the text variable"""
     text = text.replace("_", " ")
     return f"Python {text}"
 
